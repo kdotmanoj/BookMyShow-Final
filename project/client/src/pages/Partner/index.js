@@ -21,6 +21,10 @@ const Partner = () => {
           navigate("/");
           message.error("You are not allowed to access this page");
       }
+      if(user.data.data.role === "admin"){
+        navigate("/admin");
+        message.error("You are not allowed to access this page");
+      }
       else{
 
       }

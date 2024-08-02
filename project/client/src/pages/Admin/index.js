@@ -16,9 +16,14 @@ function Admin() {
             }
         });
 
+        console.log(""+user.data.data);
+        if(!user){
+            navigate("/admin");
+        }
+
         if (user.data.data.role === "partner" ) {
-          navigate("/partner");
-          message.error("You are not allowed to access this page");
+            navigate("/partner");
+            message.error("You are not allowed to access this page");
         }
         else if(user.data.data.role === "user")
         {
@@ -27,14 +32,11 @@ function Admin() {
         }
         else
         {
-
+            navigate("/admin"); 
         }
     }
 
-    useEffect(() => {
-    checkUser()
-    }, []);
-
+    checkUser();
 
       const tabItems = [
       { 
